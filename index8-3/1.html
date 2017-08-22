@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	#shadow{position: absolute;width: 100%;height: 100%;left: 0;top: 0;display: none;background: rgba(111,111,111,.3);}
+	#content{width: 500px;height: 150px;margin:100px auto;background: #eee;}
+	#end{float: right;color: #aaa;}
+	#a-true{width: 80px;height: 30px;padding: 4px;margin: 10px;background: red;text-decoration:none;}
+	#a-false{width: 80px;height: 30px;padding: 4px;margin: 10px;background: green;text-decoration:none;;}
+	</style>
+
+
+</head>
+<body>
+<button id="btn1">button1</button>
+<button id="btn2">button2</button>
+<div id="shadow">
+	<div id="content">
+		<p id="end">x</p>
+		<h3>This is title H3</h3>
+		
+		<hr>
+		<div id="main">
+		 <p id="demo">Are You eat pic</p>
+		</div>
+		<hr>
+		<a href="javascript:;" id="a-true">true</a><a href="javascript:;" id="a-false">false</a>
+
+	</div>
+	<script type="text/javascript">
+	var oBtn1=document.getElementById('btn1'),
+		oBtn2=document.getElementById('btn2'),
+		oEnd=document.getElementById('end'),
+		oAtrue=document.getElementById('a-true'),
+		oAfalse=document.getElementById('a-false'),
+		oShadow=document.getElementById('shadow');
+
+
+		oBtn1.onclick=function(){
+			oShadow.style.display='block';
+
+		}
+
+		oBtn2.onclick=function(){
+			oShadow.style.display='block';
+			
+		}
+
+
+
+
+
+
+
+
+
+
+	</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	html,body{height:100%;width: 100%;}
+	body{background: url(images/bg.jpg) no-repeat;width: 100%;background-size:cover;}
+
+	img{}
+
+
+	</style>
+</head>
+<body>
+
+<script type="text/javascript" src="../common.js"></script>
+
+<script type="text/javascript">
+function firefly(){
+	this.create=function(width,height){
+		var oImg=document.createElement('img');
+		oImg.src='images/1.jpg';
+		oImg.style.position='absolute';
+		oImg.style.width=width+'px';
+		oImg.style.height=height+'px';
+		document.body.appendChild(oImg);
+		this.el=oImg;
+
+
+		//创建星星的位置
+		this.createPosition();
+		oImg.style.left=this.iL+'px';
+		oImg.style.top=this.iT+'px';
+		return this
+
+	}
+	this.createPosition=function(){
+		var iWinW=document.documentElement.clientWidth,
+			iWinH=document.documentElement.clientHeight;
+
+			this.iL=Math.round(Math.random()*(iWinW-this.el.offsetWidth));
+			this.iT=Math.round(Math.random()*(iWinH-this.el.offsetHeight));
+
+
+	};
+
+	this.move=function(){
+		this.createPosition();
+		var oThat=this;
+		bufferMove(this.el,{left:this.iL,top:this.iT},function(){
+			oThat.move();
+		})
+	}
+
+
+}
+	for(var i=0;i<30;i++){
+	var oFirefly=new firefly();
+	var iSize=Math.round(Math.random()*20)+20;
+		oFirefly.create(width=iSize,height=iSize).move();
+		console.log(iSize)
+}
+</script>	
+</body>
+</html>

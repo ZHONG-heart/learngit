@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body,html{height: 100%;width: 100%;}
+	#bg{background: url(images/bg.jpg) repeat;width: 100%;height: 100%;}
+
+
+
+
+	</style>
+</head>
+<body>
+<div id="bg"></div>
+
+<script type="text/javascript">
+var oBg=document.getElementById('bg');
+console.log(window.innerWidth)
+console.log(document.documentElement.clientWidth)
+//构造函数
+function Firefly(){
+	this.oImg=document.createElement('img');
+}
+//给新创建的萤火虫设置大小
+Firefly.prototype.occur=function(){
+	this.oImg.src='img/star.jpg';
+	this.oImg.style.width=this.oWidth+'px';
+	this.oImg.style.height=this.oHeight+'px';
+	this.oImg.style.top=this.oTop+'px';
+	this.oImg.style.left=this.oLeft+'px';
+	oBg.appendChild(this.oImg);
+};
+//获取萤火虫随机位置
+Firefly.prototype.randomplace=function(){
+	this.oLeft=this.random*(window.innerWidth-50);
+	this.oTop=this.random*(window.innerHeight-50);
+	this.oWidth=this.random*(20)+12;
+	return this
+}
+//飞行控制
+Firefly.prototype.flyTime=function(){
+	this.oTime=Math.floor(Math.random()*5+5)*1000;
+	return this;
+}
+
+//调用函数
+Firefly.prototype.fly=function(){
+	var This=this;
+	this.oImg.sport(This.oImg,{'top':this.oTop,'left':this.oLeft},this.oTime,function(){
+		This.flyTime().occur().randomplace().fly();
+	});
+}
+//构造随机数
+Firefly.prototype.randomNUm==function(num){
+	return Math.floor(Math.random()*num);
+}
+var fireFly=[];
+for(var i=0;i<50;i++){
+
+	fireFly[i]=new Firefly();
+	fireFly[i].randomplace().flyTime().occur().randomplace().fly();
+}
+
+
+
+</script>	
+</body>
+</html>
